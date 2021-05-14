@@ -13,24 +13,32 @@ let productInfo = '';  // Важно! Пустая строка не позво�
 
 products.forEach((item) => {
 
-    const onSale = () => {
-        if(item.price < 100){
-            return `<span class='onSale'>On sale !!</span>`;
-        } else if (item.price > 100) {
-           return ''
-        }
-    }
+//     const onSale = () => {
+//         if(item.price < 100){
+//             return `<span class='onSale'>On sale !!</span>`;
+//         } else if (item.price > 100) {
+//            return ''
+//         }
+//     }
 
- productInfo += `
-  <div class="product">
-     <h1>${item.name}</h1>
-     <strong>Price: $ 
-       <span class="price">${item.price}</span>
-       ${onSale()}
-      </strong>
-    
-   
- </div>`
+//  productInfo += `
+//   <div class="product">
+//      <h1>${item.name}</h1>
+//      <strong>Price: $ 
+//        <span class="price">${item.price}</span>
+//        ${onSale()}
+//        ${item.price < 100 ? `<span class='onSale'>On sale !!</span>` : ''}
+//       </strong>  
+//   </div>`
+
+productInfo += `
+<div class="product">
+ <h1>${item.name}</h1>
+ <strong>Price: $ 
+   <span class="price">${item.price}</span>   
+   ${item.price < 100 ? `<span class='onSale'>On sale !!</span>` : ''}
+  </strong>  
+</div>`
 } );
 
 document.body.insertAdjacentHTML("afterbegin", productInfo);
